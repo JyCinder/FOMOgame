@@ -1,0 +1,18 @@
+html {
+	background: #ffffff;
+	background-attachment: fixed;
+	color: #ffffff;
+}
+
+body {
+	color: #000000;
+	font: 300 18px/1.6 "Source Sans pro", sans-serif;
+	margin: 0;
+	padding: Sem 0 2em;
+	text-align: left;
+}
+
+h1 {
+	font-weight: 400;
+	margin: 0;
+}
