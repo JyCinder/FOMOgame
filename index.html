@@ -38,13 +38,10 @@
 
 			var FOMOgame = FOMOgameContract.at('0x747410829e9e731d22f3328dda9d3fb904fed13b');
 			console.log(FOMOgame);
-			FOMOgame.rounds(function(error, result) {
-				if (!error) {
-					$(#roundInfoDisplay).html(result);
-				} else
-					console.log(error);
+			$("#button").click(function() {
+				FOMOgame.rounds($("#roundID").val(), $("#playerID").val());
 			});
-
+			$("roundInfoDisplay").html($("#button"));
 		</script>
 
 </html>
