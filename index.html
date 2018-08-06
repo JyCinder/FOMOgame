@@ -35,7 +35,7 @@
 			var FOMOgame = FOMOgameContract.at('0x747410829e9e731d22f3328dda9d3fb904fed13b');
 			console.log(FOMOgame);
 			$("#button").click(function() {
-				if ($("#roundID").val() != null) and ($("#playerID").val() != null) {
+				if (($("#roundID").val() != null) and ($("#playerID").val() != null)) { 
 					var roundInfoResult = FOMOgame.rounds($("#roundID").val());
 					$("#roundInfoDisplay").html("blablabla");
 				}
