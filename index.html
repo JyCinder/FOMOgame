@@ -26,7 +26,7 @@
 		<p>SELECT round ID, SELECT gas for transaction, SHOW dividends</p>
 		<p>SELECT closed round ID, SELECT gas for transaction, SHOW rewards</p>
 		<script>
-			web3 = new Web3(new Web3.provider.HttpProvider("http://localhost:8545"));
+			web3 = new Web3(new Web3.provider.HttpProviders("http://localhost:8545"));
 
 			web3.eth.defaultAccount = web3.eth.accounts[0];
 
