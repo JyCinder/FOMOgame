@@ -50,7 +50,8 @@
 
 				var FOMOgame = FOMOgameContract.at('0x747410829e9e731d22f3328dda9d3fb904fed13b');
 				console.log(FOMOgame);
-				var curRoundInfo = FOMOgame.rounds.call($("#roundID").val());
+				roundInfoResult = FOMOgame.rounds(1);
+				console.log(roundInfoResult)
 				//if (($("#roundID").val() != null) & ($("#playerID").val() != null)) { 
 					//var roundInfoResult = FOMOgame.rounds($("#roundID").val());
 				//}
