@@ -4,15 +4,16 @@
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
 	<script type="text/javascript">
+		web3js = new Web3(web3.currentProvider);
   			// Checking if Web3 has been injected by the browser (Mist/MetaMask)
-  		if (typeof web3 !== 'undefined') {
+  		//if (typeof web3 !== 'undefined') {
     			// Use Mist/MetaMask's provider
-    		web3js = new Web3(web3.currentProvider);
-  		} else {
-    		console.log('No web3? You should consider trying MetaMask!')
+    		//web3js = new Web3(web3.currentProvider);
+  		//} else {
+    		//console.log('No web3? You should consider trying MetaMask!')
     			// fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
-    		web3js = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/cinder0927"));
-  		}
+    		//web3js = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/cinder0927"));
+  		//}
 		
   		// Now you can start your app & access web3 freely:
 
