@@ -45,7 +45,7 @@
 			var curRound = FOMOgame.currRID.call();
 			document.getElementById("warningDisplay").innerText = "Choose an integer between 1 and " + curRound + " to get your dividends from that round";
 			var roundChosen = document.getElementById("selectRound").value;
-			FOMOgame.withdrawDividends.sendTransaction(roundChosen [from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"]);
+			FOMOgame.withdrawDividends.sendTransaction(roundChosen,{from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"});
 			//var playeraddress = document.getElementById("playerAddress").value;
 			//var ethAmount = .1
 			//from here the metamask should pop up
