@@ -49,7 +49,22 @@
 			//from here the metamask should pop up
 		}
 
+		FOMOgame.NewRound().watch(function(error, result){
+			if (!error) {
+				document.getElementById("newRoundDisplay").innerText = "Round "+ result.args.roundID + " has started!";
+			} else {
+				console.log(error);
+			}
+		});
 
+		//var newRoundEvent = FOMOgame.NewRound();
+		//newRoundEvent.watch(function(error, result) {
+			//if (!error) {
+				//document.getElementById("newRoundDisplay").innerText = "Round "+ newRoundDisplay.roundID + " has started!";
+			//} else {
+				//console.log(error);
+			//}
+		//});
 			//roundInfoResult = FOMOgame.rounds(1,function(err, result){console.log(result)});
 			//console.log(roundInfoResult)
 			//if (($("#roundID").val() != null) & ($("#playerID").val() != null)) { 
@@ -71,14 +86,16 @@
 
 		<button type = "button" onClick = "curRoundInfo();">Get Round Info</button>
 		<div id="roundInfoDisplay"></div>
-
+		<div id="newRoundDisplay"></div>
 		<p>SHOW "New round has started" when countdown ends + 10 min </p>
-		<p>SHOW barcode to scan, send money to contract address (??)</p>
+		<p>Scan the QR code to send tokens to the contract address</p>
+		<img src="qrcode.png" alt="QR code for the contract address">
 		<p>SELECT round ID, SELECT gas for transaction, SHOW dividends</p>
 		<label for="selectRound" class="col-lg-2 control-label">Select a round</label>
 		<input id="selectRound" type="number">
 		<button type = "button" onClick = "roundSelection();">Get dividends</button>
 		<div id="warningDisplay"></div>
+
 		<p>SELECT closed round ID, SELECT gas for transaction, SHOW rewards</p>
 	</body>
 </html>
