@@ -46,6 +46,8 @@
 			document.getElementById("warningDisplay").innerText = "Choose an integer between 1 and " + curRound + " to get your dividends from that round";
 			var roundChosen = document.getElementById("selectRound").value;
 			FOMOgame.withdrawDividends.call(roundChosen);
+			//var playeraddress = document.getElementById("playerAddress").value;
+			//var ethAmount = .1
 			//from here the metamask should pop up
 		}      
 
@@ -106,7 +108,6 @@
 
 		<label for="roundInfo" class="col-lg-2 control-label">Player ID</label>
 		<input id="playerID" type="number">
-
 		<button type = "button" onClick = "curRoundInfo();">Get Round Info</button>
 		<div id="roundInfoDisplay"></div>
 		<div id="newRoundDisplay"></div>
