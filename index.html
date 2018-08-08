@@ -1,9 +1,9 @@
 <!DOCTYPE>
 <html>
 	<head>
+	<meta charset="UTF-8">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
 	<script type="text/javascript">
-
   			// Checking if Web3 has been injected by the browser (Mist/MetaMask)
   		if (typeof web3 !== 'undefined') {
     			// Use Mist/MetaMask's provider
@@ -13,8 +13,8 @@
     			// fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     		web3js = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/cinder0927"));
   		}
-
-  // Now you can start your app & access web3 freely:
+		
+  		// Now you can start your app & access web3 freely:
 
 			
 			
@@ -23,7 +23,7 @@
 
 		var FOMOgameContract = web3js.eth.contract([{"constant": true,"inputs": [],"name": "lastAKeyPrice","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_rid","type": "uint256"}],"name": "claimRewards","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_rid","type": "uint256"}],"name": "withdrawDividends","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "","type": "address"}],"name": "addrToPID","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "isCurrRoundEnded","outputs": [{"name": "","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "lastPID","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "withdraw","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "_quantity","type": "uint256"}],"name": "BKeysOf","outputs": [{"name": "","type": "uint256"},{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "lastBKeyPrice","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "startRound","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "currRID","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "renounceOwnership","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [],"name": "endRound","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "increaseStep","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "launchTime","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "roundInterval","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "initAKeyPrice","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "keyDecimal","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "uint256"}],"name": "rounds","outputs": [{"name": "RID","type": "uint256"},{"name": "totalAKeys","type": "uint256"},{"name": "totalBKeys","type": "uint256"},{"name": "pot","type": "uint256"},{"name": "dividends","type": "uint256"},{"name": "foundationReserved","type": "uint256"},{"name": "lastPlayerReward","type": "uint256"},{"name": "lastPlayer","type": "address"},{"name": "start","type": "uint256"},{"name": "end","type": "uint256"},{"name": "hasBeenEnded","type": "bool"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "BRewardPercent","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "owner","outputs": [{"name": "","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_account","type": "address"},{"name": "_amount","type": "uint256"}],"name": "updateAndRecalc","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "ARewardPercent","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "withdrawLeftover","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": false,"inputs": [{"name": "_account","type": "address"},{"name": "_amount","type": "uint256"},{"name": "_aKeys","type": "uint256"},{"name": "_bKeys","type": "uint256"}],"name": "roundUpdate","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [{"name": "","type": "uint256"},{"name": "","type": "uint256"}],"name": "playerRounds","outputs": [{"name": "PID","type": "uint256"},{"name": "RID","type": "uint256"},{"name": "AKeys","type": "uint256"},{"name": "BKeys","type": "uint256"},{"name": "lastAKeys","type": "uint256"},{"name": "claimedAEarning","type": "uint256"},{"name": "initTotalDivi","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "_quantity","type": "uint256"}],"name": "AKeysOf","outputs": [{"name": "","type": "uint256"},{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "sender","type": "address"},{"name": "value","type": "uint256"}],"name": "dealWithPay","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "countdown","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [],"name": "checkAndPayLastPlayer","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "reservedPercent","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "expirationTime","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": false,"inputs": [{"name": "_newOwner","type": "address"}],"name": "transferOwnership","outputs": [],"payable": false,"stateMutability": "nonpayable","type": "function"},{"constant": true,"inputs": [],"name": "lastPlayerPercent","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [{"name": "","type": "uint256"}],"name": "PIDToPlayers","outputs": [{"name": "PID","type": "uint256"},{"name": "account","type": "address"}],"payable": false,"stateMutability": "view","type": "function"},{"constant": true,"inputs": [],"name": "initBKeyPrice","outputs": [{"name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"},{"inputs": [],"payable": false,"stateMutability": "nonpayable","type": "constructor"},{"payable": true,"stateMutability": "payable","type": "fallback"},{"anonymous": false,"inputs": [{"indexed": false,"name": "player","type": "address"},{"indexed": false,"name": "amount","type": "uint256"}],"name": "DividendsIncr","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "player","type": "address"},{"indexed": false,"name": "amount","type": "uint256"}],"name": "DividendsPaid","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "amount","type": "uint256"}],"name": "NewDividends","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "last","type": "address"}],"name": "GetLastWinner","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "amount","type": "uint256"}],"name": "PotIncr","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "roundID","type": "uint256"},{"indexed": false,"name": "startTime","type": "uint256"},{"indexed": false,"name": "endTime","type": "uint256"}],"name": "NewRound","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "newEnd","type": "uint256"}],"name": "EndUpdate","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "sender","type": "address"},{"indexed": false,"name": "value","type": "uint256"}],"name": "PaymentReceived","type": "event"},{"anonymous": false,"inputs": [{"indexed": false,"name": "player","type": "address"},{"indexed": false,"name": "rewards","type": "uint256"}],"name": "RewardsClear","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "previousOwner","type": "address"}],"name": "OwnershipRenounced","type": "event"},{"anonymous": false,"inputs": [{"indexed": true,"name": "previousOwner","type": "address"},{"indexed": true,"name": "newOwner","type": "address"}],"name": "OwnershipTransferred","type": "event"}]);
 
-		var FOMOgame = FOMOgameContract.at('0x747410829e9e731d22f3328dda9d3fb904fed13b');
+		var FOMOgame = FOMOgameContract.at('0xcc6983856f25a988130f9f703a5c3658fab3164b');
 		console.log(FOMOgame);
 
 
@@ -47,20 +47,43 @@
 			var roundChosen = document.getElementById("selectRound").value;
 			FOMOgame.withdrawDividends.call(roundChosen);
 			//from here the metamask should pop up
-		}
+		}      
 
-		FOMOgame.NewRound().watch(function(error, result){
-			if (!error) {
-				document.getElementById("newRoundDisplay").innerText = "Round "+ result.args.roundID + " has started!";
+		function closedRoundSelection() {
+			var curRound = FOMOgame.currRID.call();
+			if (curRound == 1) {
+				document.getElementById("closedWarningDisplay").innerText = "No rewards to claim";
 			} else {
-				console.log(error);
+				document.getElementById("closedWarningDisplay").innerText = "Choose an integer between 1 and " + (curRound-1) + " to get your rewards from closed rounds";
+				var closedRoundChosen = document.getElementById("selectClosedRound").value;
+				FOMOgame.claimRewards.call(closedRoundChosen);
 			}
-		});
+		}
+		//var subscription = web3js.eth.subscribe(function(error,result){
+			//if (!error) {
+				//document.getElementById("newRoundDisplay").innerText = "Round "+ subscription.args.roundID + " has started!";
+			//} else {
+				//console.log(error);
+			//}
+		//});
+
+		//subscription.unsubscribe(function(error, success){
+    		//if(success)
+        		//console.log('Successfully unsubscribed!');
+		//});
+
+		//FOMOgame.NewRound().watch(function(error, result){
+			//if (!error) {
+				//document.getElementById("newRoundDisplay").innerText = "Round "+ result.args.roundID + " has started!";
+			//} else {
+				//console.log(error);
+			//}
+		//});
 
 		//var newRoundEvent = FOMOgame.NewRound();
 		//newRoundEvent.watch(function(error, result) {
 			//if (!error) {
-				//document.getElementById("newRoundDisplay").innerText = "Round "+ newRoundDisplay.roundID + " has started!";
+				//document.getElementById("newRoundDisplay").innerText = "Round "+ result.args.roundID + " has started!";
 			//} else {
 				//console.log(error);
 			//}
@@ -87,16 +110,17 @@
 		<button type = "button" onClick = "curRoundInfo();">Get Round Info</button>
 		<div id="roundInfoDisplay"></div>
 		<div id="newRoundDisplay"></div>
-		<p>SHOW "New round has started" when countdown ends + 10 min </p>
-		<p>Scan the QR code to send tokens to the contract address</p>
 		<img src="qrcode.png" alt="QR code for the contract address">
-		<p>SELECT round ID, SELECT gas for transaction, SHOW dividends</p>
+		<p>Scan the QR code to send tokens to the contract address</p>
 		<label for="selectRound" class="col-lg-2 control-label">Select a round</label>
 		<input id="selectRound" type="number">
 		<button type = "button" onClick = "roundSelection();">Get dividends</button>
 		<div id="warningDisplay"></div>
 
-		<p>SELECT closed round ID, SELECT gas for transaction, SHOW rewards</p>
+		<label for="selectClosedRound" class="col-lg-2 control-label">Select a closed round</label>
+		<input for="selectClosedRound" type="number">
+		<button type = "button" onClick = "closedRoundSelection();">Get rewards</button>
+		<div id="closedWarningDisplay"></div>
 	</body>
 </html>
 
