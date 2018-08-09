@@ -22,19 +22,23 @@
 </head>
 
 <script>
-	function curRoundInfo() {
-		var ROUNDID = document.getElementById("roundID").value;
-		var PLAYERID = document.getElementById("playerID").value;
-		var ROUNDINFO = FOMOgame.rounds.call(ROUNDID);
+	function curRoundInfo(error,result) {
+		if (!error) {
+			var ROUNDID = document.getElementById("roundID").value;
+			var PLAYERID = document.getElementById("playerID").value;
+			var ROUNDINFO = FOMOgame.rounds.call(ROUNDID);
 				//console.log(ROUNDINFO);
-		var PLAYERINFO = FOMOgame.playerRounds.call(ROUNDID,PLAYERID);
-		var curAKeyPrice = FOMOgame.lastAKeyPrice.call();
-		var curBKeyPrice = FOMOgame.lastBKeyPrice.call();
-		var countDown = FOMOgame.countdown.call();
-		var hoursLeft = Math.floor(Math.floor(countDown/60)/60)
-		var minsLeft = Math.floor(Math.floor(countDown/60)) - hoursLeft*60
-		var secsLeft = countDown % 60
-		document.getElementById("roundInfoDisplay").innerText = "Last player at address " + ROUNDINFO[7] + " gets " + ROUNDINFO[6] + " rewards" +"\n" + "Current price of an A key: " + curAKeyPrice + ", you have " + ROUNDINFO[1] + " A keys" + "\n" + "Current price of a B key: " + curBKeyPrice + ", you have " + ROUNDINFO[2] + " B keys" + "\n" + "Your current earnings: " + PLAYERINFO[5] + "\n" + "Current round ends in " + hoursLeft + " hours, " + minsLeft + " minutes, and " + secsLeft + " seconds";
+			var PLAYERINFO = FOMOgame.playerRounds.call(ROUNDID,PLAYERID);
+			var curAKeyPrice = FOMOgame.lastAKeyPrice.call();
+			var curBKeyPrice = FOMOgame.lastBKeyPrice.call();
+			var countDown = FOMOgame.countdown.call();
+			var hoursLeft = Math.floor(Math.floor(countDown/60)/60)
+			var minsLeft = Math.floor(Math.floor(countDown/60)) - hoursLeft*60
+			var secsLeft = countDown % 60
+			document.getElementById("roundInfoDisplay").innerText = "Last player at address " + ROUNDINFO[7] + " gets " + ROUNDINFO[6] + " rewards" +"\n" + "Current price of an A key: " + curAKeyPrice + ", you have " + ROUNDINFO[1] + " A keys" + "\n" + "Current price of a B key: " + curBKeyPrice + ", you have " + ROUNDINFO[2] + " B keys" + "\n" + "Your current earnings: " + PLAYERINFO[5] + "\n" + "Current round ends in " + hoursLeft + " hours, " + minsLeft + " minutes, and " + secsLeft + " seconds";
+		} else {
+			console.log(error)
+		}
 	}
 	function roundSelection() {
 		var curRound = FOMOgame.currRID.call();
