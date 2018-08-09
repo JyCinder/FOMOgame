@@ -69,6 +69,7 @@
 		var hoursLeft = Math.floor(Math.floor(countDown/60)/60)
 		var minsLeft = Math.floor(Math.floor(countDown/60)) - hoursLeft*60
 		var secsLeft = countDown % 60
+		console.log(ROUNDINFO,PLAYERINFO,curAKeyPrice,curBKeyPrice,countDown)
 		document.getElementById("roundInfoDisplay").innerText = "Last player at address " + ROUNDINFO[7] + " gets " + ROUNDINFO[6] + " rewards" +"\n" + "Current price of an A key: " + curAKeyPrice + ", you have " + ROUNDINFO[1] + " A keys" + "\n" + "Current price of a B key: " + curBKeyPrice + ", you have " + ROUNDINFO[2] + " B keys" + "\n" + "Your current earnings: " + PLAYERINFO[5] + "\n" + "Current round ends in " + hoursLeft + " hours, " + minsLeft + " minutes, and " + secsLeft + " seconds";
 	}
 	function roundSelection() {
