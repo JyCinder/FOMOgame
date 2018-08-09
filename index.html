@@ -25,9 +25,14 @@
 	function curRoundInfo() {
 		var ROUNDID = document.getElementById("roundID").value;
 		var PLAYERID = document.getElementById("playerID").value;
+		var ROUNDINFO
+		var PLAYERINFO
+		var curAKeyPrice
+		var curBKeyPrice
+		var countDown
 		FOMOgame.rounds.call(ROUNDID,function(error,result) {
 			if (!error) {
-				var ROUNDINFO=result
+				ROUNDINFO=result
 			} else {
 				console.log(error)
 			}
@@ -35,28 +40,28 @@
 				//console.log(ROUNDINFO);
 		FOMOgame.playerRounds.call(ROUNDID,PLAYERID,function(error,result) {
 			if (!error) {
-				var PLAYERINFO=result
+				PLAYERINFO=result
 			} else {
 				console.log(error)
 			}
 		});
 		FOMOgame.lastAKeyPrice.call(function(error,result) {
 			if (!error) {
-				var curAKeyPrice=result
+				curAKeyPrice=result
 			} else {
 				console.log(error)
 			}
 		});
 		FOMOgame.lastBKeyPrice.call(function(error,result) {
 			if (!error) {
-				var curBKeyPrice=result
+				curBKeyPrice=result
 			} else {
 				console.log(error)
 			}
 		});
 		FOMOgame.countdown.call(function(error,result) {
 			if (!error) {
-				var countDown=result
+				countDown=result
 			} else {
 				console.log(error)
 			}
