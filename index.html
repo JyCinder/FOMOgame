@@ -410,7 +410,13 @@
 			}
 		})
 		var roundChosen = document.getElementById("selectRound").value;
-		FOMOgame.withdrawDividends.sendTransaction(roundChosen,{from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"});
+		FOMOgame.withdrawDividends.sendTransaction(roundChosen,{from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"}, function(error,result) {
+			if (!error) {
+				console.log("no error")
+			} else {
+				console.log(error)
+			}
+		});
 				//var playeraddress = document.getElementById("playerAddress").value;
 				//var ethAmount = .1
 				//from here the metamask should pop up
@@ -418,7 +424,13 @@
 
 	function closedRoundSelection() {
 		var closedRoundChosen = document.getElementById("selectClosedRound").value;
-		FOMOgame.claimRewards.sendTransaction(closedRoundChosen, {from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"});
+		FOMOgame.claimRewards.sendTransaction(closedRoundChosen, {from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"}, function(error,result) {
+			if (!error) {
+				console.log("no error")
+			} else {
+				console.log(error)
+			}
+		});
 		}
 		//var subscription = web3js.eth.subscribe(function(error,result){
 			//if (!error) {
