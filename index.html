@@ -432,6 +432,14 @@
 			}
 		});
 		}
+
+	FOMOgame.NewRound().watch((error,response) {
+		if (!error) {
+			document.getElementById("newround").innerText = "A new round has started"
+		} else {
+			console.log(error)
+		}
+	})
 		//var subscription = web3js.eth.subscribe(function(error,result){
 			//if (!error) {
 				//document.getElementById("newRoundDisplay").innerText = "Round "+ subscription.args.roundID + " has started!";
@@ -473,6 +481,7 @@
 </script>
 <body>
 		<h1>FOMO</h1>
+		<h2><span id="newround"></span></h2>
 		<label for="roundInfo" class="col-lg-2 control-label">Round ID</label>
 		<input id="roundID" type="number">
 
