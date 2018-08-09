@@ -433,13 +433,15 @@
 		});
 		}
 
-	FOMOgame.NewRound().watch(function(error,response) {
-		if (!error) {
-			document.getElementById("newround").innerText = "A new round has started"
-		} else {
-			console.log(error)
-		}
-	})
+	function ifNewRound() {
+		FOMOgame.NewRound().watch(function(error,response) {
+			if (!error) {
+				document.getElementById("newround").innerText = "A new round has started"
+			} else {
+				console.log(error)
+			}
+		})
+	}
 		//var subscription = web3js.eth.subscribe(function(error,result){
 			//if (!error) {
 				//document.getElementById("newRoundDisplay").innerText = "Round "+ subscription.args.roundID + " has started!";
