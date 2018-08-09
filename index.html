@@ -433,7 +433,7 @@
 		});
 		}
 
-	FOMOgame.NewRound().watch((error,response) {
+	FOMOgame.NewRound().watch(function(error,response)) {
 		if (!error) {
 			document.getElementById("newround").innerText = "A new round has started"
 		} else {
