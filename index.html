@@ -355,24 +355,25 @@
 		var countDown
 		FOMOgame.rounds.call(ROUNDID,function(error,result) {
 			if (!error) {
-				document.getElementById("lastPlayerAddress").innerText = result[7]
-				document.getElementById("lastPlayerReward").innerText = result[6]
-				document.getElementById("AKeyNum").innerText = result[1]
-				document.getElementById("BKeyNum").innerText = result[2]
+				document.getElementById("lastPlayerAddress").innerText = result[6]
+				document.getElementById("lastPlayerReward").innerText = result[5]
+				document.getElementById("AKeyNum").innerText = result[0]
+				document.getElementById("BKeyNum").innerText = result[1]
+				document.getElementById("currentEarning").innerText = result[3]
 				//ROUNDINFO=result
 			} else {
 				console.log(error)
 			}
 		});
 				//console.log(ROUNDINFO);
-		FOMOgame.playerRounds.call(ROUNDID,PLAYERID,function(error,result) {
-			if (!error) {
-				document.getElementById("currentEarning").innerText = result[5]
+		//FOMOgame.playerRounds.call(ROUNDID,PLAYERID,function(error,result) {
+			//if (!error) {
+				//document.getElementById("currentEarning").innerText = result[5]
 				//PLAYERINFO=result
-			} else {
-				console.log(error)
-			}
-		});
+			//} else {
+				//console.log(error)
+			//}
+		//});
 
 		FOMOgame.lastAKeyPrice.call(function(error,result) {
 			if (!error) {
