@@ -418,7 +418,7 @@
 
 	function closedRoundSelection() {
 		var closedRoundChosen = document.getElementById("selectClosedRound").value;
-		FOMOgame.claimRewards.sendTransaction(closedRoundChosen);
+		FOMOgame.claimRewards.sendTransaction(closedRoundChosen, {from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"});
 		}
 		//var subscription = web3js.eth.subscribe(function(error,result){
 			//if (!error) {
