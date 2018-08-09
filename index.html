@@ -394,7 +394,7 @@
 		FOMOgame.countdown.call(function(error,result) {
 			if (!error) {
 				document.getElementById("hours").innerText = Math.floor(Math.floor(result/60)/60)
-				document.getElementById("minutes").innerText = Math.floor(Math.floor(result/60)) - hoursLeft*60
+				document.getElementById("minutes").innerText = Math.floor(Math.floor(result/60)) - Math.floor(Math.floor(result/60)/60)*60
 				document.getElementById("seconds").innerText = result % 60
 				//countDown=result
 			} else {
@@ -479,8 +479,6 @@
 		<p>Current price of a B key: <span id="currentBKeyPrice"></span>, you have <span id="BKeyNum"></span> B keys</p>
 		<p>Your current earnings: <span id="currentEarning"></span>
 		<p>Current round ends in <span id="hours"></span> hours, <span id="minutes"></span> minutes, and <span id="seconds"></span> seconds</p>
-
-		<div id="roundInfoDisplay"></div>
 		<div id="newRoundDisplay"></div>
 		<img src="qrcode.png" alt="QR code for the contract address">
 		<p>Scan the QR code to send tokens to the contract address</p>
