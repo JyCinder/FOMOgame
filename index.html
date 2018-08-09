@@ -355,7 +355,11 @@
 		var countDown
 		FOMOgame.rounds.call(ROUNDID,function(error,result) {
 			if (!error) {
-				ROUNDINFO=result
+				document.getElementById("lastPlayerAddress").innerText = result[7]
+				document.getElementById("lastPlayerReward").innerText = result[6]
+				document.getElementById("AKeyNum").innerText = result[1]
+				document.getElementById("BKeyNum").innerText = result[2]
+				//ROUNDINFO=result
 			} else {
 				console.log(error)
 			}
@@ -363,36 +367,44 @@
 				//console.log(ROUNDINFO);
 		FOMOgame.playerRounds.call(ROUNDID,PLAYERID,function(error,result) {
 			if (!error) {
-				PLAYERINFO=result
+				document.getElementById("currentEarning").innerText = result[5]
+				//PLAYERINFO=result
 			} else {
 				console.log(error)
 			}
 		});
+
 		FOMOgame.lastAKeyPrice.call(function(error,result) {
 			if (!error) {
-				curAKeyPrice=result
+				document.getElementById("currentAKeyPrice").innerText = result
+				//curAKeyPrice=result
 			} else {
 				console.log(error)
 			}
 		});
+
 		FOMOgame.lastBKeyPrice.call(function(error,result) {
 			if (!error) {
-				curBKeyPrice=result
+				document.getElementById("currentBKeyPrice").innerText = result
+				//curBKeyPrice=result
 			} else {
 				console.log(error)
 			}
 		});
 		FOMOgame.countdown.call(function(error,result) {
 			if (!error) {
-				countDown=result
+				document.getElementById("hours").innerText = Math.floor(Math.floor(result/60)/60)
+				document.getElementById("minutes").innerText = Math.floor(Math.floor(result/60)) - hoursLeft*60
+				document.getElementById("seconds").innerText = result % 60
+				//countDown=result
 			} else {
 				console.log(error)
 			}
 		});
-		var hoursLeft = Math.floor(Math.floor(countDown/60)/60)
-		var minsLeft = Math.floor(Math.floor(countDown/60)) - hoursLeft*60
-		var secsLeft = countDown % 60
-		console.log(ROUNDINFO,PLAYERINFO,curAKeyPrice,curBKeyPrice,countDown)
+		//var hoursLeft = Math.floor(Math.floor(countDown/60)/60)
+		//var minsLeft = Math.floor(Math.floor(countDown/60)) - hoursLeft*60
+		//var secsLeft = countDown % 60
+		//console.log(ROUNDINFO,PLAYERINFO,curAKeyPrice,curBKeyPrice,countDown)
 		document.getElementById("roundInfoDisplay").innerText = "Last player at address " + ROUNDINFO[7] + " gets " + ROUNDINFO[6] + " rewards" +"\n" + "Current price of an A key: " + curAKeyPrice + ", you have " + ROUNDINFO[1] + " A keys" + "\n" + "Current price of a B key: " + curBKeyPrice + ", you have " + ROUNDINFO[2] + " B keys" + "\n" + "Your current earnings: " + PLAYERINFO[5] + "\n" + "Current round ends in " + hoursLeft + " hours, " + minsLeft + " minutes, and " + secsLeft + " seconds";
 	}
 	function roundSelection() {
@@ -462,6 +474,12 @@
 		<label for="roundInfo" class="col-lg-2 control-label">Player ID</label>
 		<input id="playerID" type="number">
 		<button type = "button" onClick = "curRoundInfo();">Get Round Info</button>
+		<p>Last player at address <span id="lastPlayerAddress"></span> gets <span id="lastPlayerReward"></span> rewards</p>
+		<p>Current price of an A key: <span id="currentAKeyPrice"></span>, you have <span id="AKeyNum"></span> A keys</p>
+		<p>Current price of a B key: <span id="currentBKeyPrice"></span>, you have <span id="BKeyNum"></span> B keys</p>
+		<p>Your current earnings: <span id="currentEarning"></span>
+		<p>Current round ends in <span id="hours"></span> hours, <span id="minutes"></span> minutes, and <span id="seconds"></span> seconds</p>
+
 		<div id="roundInfoDisplay"></div>
 		<div id="newRoundDisplay"></div>
 		<img src="qrcode.png" alt="QR code for the contract address">
@@ -477,10 +495,6 @@
 		<div id="closedWarningDisplay"></div>
 </body>
 </html>
-
-
-
-
 
 
 
