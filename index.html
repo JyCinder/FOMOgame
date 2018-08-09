@@ -348,11 +348,6 @@
 	function curRoundInfo() {
 		var ROUNDID = document.getElementById("roundID").value;
 		var PLAYERID = document.getElementById("playerID").value;
-		var ROUNDINFO
-		var PLAYERINFO
-		var curAKeyPrice
-		var curBKeyPrice
-		var countDown
 		FOMOgame.rounds.call(ROUNDID,function(error,result) {
 			if (!error) {
 				document.getElementById("lastPlayerAddress").innerText = result[6]
@@ -406,11 +401,14 @@
 		//var minsLeft = Math.floor(Math.floor(countDown/60)) - hoursLeft*60
 		//var secsLeft = countDown % 60
 		//console.log(ROUNDINFO,PLAYERINFO,curAKeyPrice,curBKeyPrice,countDown)
-		document.getElementById("roundInfoDisplay").innerText = "Last player at address " + ROUNDINFO[7] + " gets " + ROUNDINFO[6] + " rewards" +"\n" + "Current price of an A key: " + curAKeyPrice + ", you have " + ROUNDINFO[1] + " A keys" + "\n" + "Current price of a B key: " + curBKeyPrice + ", you have " + ROUNDINFO[2] + " B keys" + "\n" + "Your current earnings: " + PLAYERINFO[5] + "\n" + "Current round ends in " + hoursLeft + " hours, " + minsLeft + " minutes, and " + secsLeft + " seconds";
+		//document.getElementById("roundInfoDisplay").innerText = "Last player at address " + ROUNDINFO[7] + " gets " + ROUNDINFO[6] + " rewards" +"\n" + "Current price of an A key: " + curAKeyPrice + ", you have " + ROUNDINFO[1] + " A keys" + "\n" + "Current price of a B key: " + curBKeyPrice + ", you have " + ROUNDINFO[2] + " B keys" + "\n" + "Your current earnings: " + PLAYERINFO[5] + "\n" + "Current round ends in " + hoursLeft + " hours, " + minsLeft + " minutes, and " + secsLeft + " seconds";
 	}
 	function roundSelection() {
-		var curRound = FOMOgame.currRID.call();
-		document.getElementById("warningDisplay").innerText = "Choose an integer between 1 and " + curRound + " to get your dividends from that round";
+		FOMOgame.currRID.call(function(error,result) {
+			if (!error) {
+				document.getElementById("availableRounds").innerText = result
+			}
+		})
 		var roundChosen = document.getElementById("selectRound").value;
 		FOMOgame.withdrawDividends.sendTransaction(roundChosen,{from:"0x7ba1500c66f482104bc4f08accac55c1e0c5701b"});
 				//var playeraddress = document.getElementById("playerAddress").value;
@@ -419,15 +417,9 @@
 	}      
 
 	function closedRoundSelection() {
-		var curRound = FOMOgame.currRID.call();
-		if (curRound == 1) {
-			document.getElementById("closedWarningDisplay").innerText = "No rewards to claim";
-		} else {
-			document.getElementById("closedWarningDisplay").innerText = "Choose an integer between 1 and " + (curRound-1) + " to get your rewards from closed rounds";
-			var closedRoundChosen = document.getElementById("selectClosedRound").value;
-			FOMOgame.claimRewards.sendTransaction(closedRoundChosen);
+		var closedRoundChosen = document.getElementById("selectClosedRound").value;
+		FOMOgame.claimRewards.sendTransaction(closedRoundChosen);
 		}
-	}
 		//var subscription = web3js.eth.subscribe(function(error,result){
 			//if (!error) {
 				//document.getElementById("newRoundDisplay").innerText = "Round "+ subscription.args.roundID + " has started!";
@@ -483,17 +475,14 @@
 		<div id="newRoundDisplay"></div>
 		<img src="qrcode.png" alt="QR code for the contract address">
 		<p>Scan the QR code to send tokens to the contract address</p>
+		<p>Choose an integer between 1 and <span id="availableRounds"></span> to get your dividends from that round</p>
 		<label for="selectRound" class="col-lg-2 control-label">Select a round</label>
 		<input id="selectRound" type="number">
 		<button type = "button" onClick = "roundSelection();">Get dividends</button>
-		<div id="warningDisplay"></div>
 
 		<label for="selectClosedRound" class="col-lg-2 control-label">Select a closed round</label>
 		<input for="selectClosedRound" type="number">
 		<button type = "button" onClick = "closedRoundSelection();">Get rewards</button>
-		<div id="closedWarningDisplay"></div>
 </body>
 </html>
-
-
 
