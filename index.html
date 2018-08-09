@@ -434,7 +434,7 @@
 		}
 
 	function ifNewRound() {
-		FOMOgame.GetLastWinner().watch(function(error,response) {
+		FOMOgame.NewRound().watch(function(error,response) {
 			if (!error) {
 				document.getElementById("newround").innerText = "A new round has started"
 			} else {
